@@ -1,7 +1,14 @@
+using CoffeeBox.Models;
+using SignalR.Hubs;
+
 namespace CoffeeBox.Hubs
 {
-    public class ChatHub
+    [HubName("chat")]
+    public class ChatHub : Hub
     {
-        
+        public void Send(Message message)
+        {
+            Clients.addMessage(message);
+        }
     }
 }
