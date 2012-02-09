@@ -3,7 +3,7 @@ $(document).ready ->
 
 class Main
     init: -> 
-        chat = new Chat()
+        chat = new Chat() 
 
         @bindChatEvents chat
 
