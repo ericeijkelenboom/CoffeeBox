@@ -1,0 +1,20 @@
+﻿<div id="survey">
+
+    <h3 data-bind="text:Question"></h3>
+
+    <table id="surveytable">
+        <tbody data-bind="foreach: Entries">
+            <tr>
+                <td>
+                    <a data-bind="click: $parent.updateEntry">
+                        <span data-bind="text: Name"></span>
+                    </a>
+                </td>
+                <td>
+                    <span data-bind="text: Votes"></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

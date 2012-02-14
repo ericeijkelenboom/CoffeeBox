@@ -4,11 +4,11 @@
 }
 
 <section class="content">
-<header>
-<h2>@ViewBag.Message</h2>
-</header>
-
 <p>
-  About you Be Creative!!
+     @Html.Partial("../Partial/_Survey")
 </p>
 </section>
+
+@section Scripts {
+    <script src="@Url.Content("~/Scripts/survey.js")" type="text/javascript"></script>
+}

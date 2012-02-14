@@ -15,11 +15,11 @@ namespace CoffeeBox.Hubs
         {
             Survey.Question = "What is the best programming language ever?";
 
-            Survey.SurveyEntries.Add(new SurveyEntry{Name = "Java", Votes = 0});
-            Survey.SurveyEntries.Add(new SurveyEntry{Name = "C#", Votes = 0});
-            Survey.SurveyEntries.Add(new SurveyEntry{Name = "Ruby", Votes = 0});
-            Survey.SurveyEntries.Add(new SurveyEntry{Name = "Cobol", Votes = 0});
-            Survey.SurveyEntries.Add(new SurveyEntry{Name = "CoffeeScript", Votes = 0});
+            Survey.SurveyEntries.Add(new SurveyEntry { Name = "Java", Votes = 0 });
+            Survey.SurveyEntries.Add(new SurveyEntry { Name = "C#", Votes = 0 });
+            Survey.SurveyEntries.Add(new SurveyEntry { Name = "Ruby", Votes = 0 });
+            Survey.SurveyEntries.Add(new SurveyEntry { Name = "Cobol", Votes = 0 });
+            Survey.SurveyEntries.Add(new SurveyEntry { Name = "CoffeeScript", Votes = 0 });
         }
 
         #endregion
@@ -29,14 +29,18 @@ namespace CoffeeBox.Hubs
             Clients.updateSurvey(Survey);
         }
 
-        public void UpdateSurvey(SurveyEntry surveyEntry)
+        public void UpdateEntry(string surveyEntryName)
         {
-            // Temp synchronization since we're accessing static variable
-            lock(Survey)
+            var entry = Survey.SurveyEntries.FirstOrDefault(e => e.Name == surveyEntryName);
+
+            if (entry != null)
             {
-                var entry = Survey.SurveyEntries.FirstOrDefault(e => e.Name == surveyEntry.Name);
-                if (entry != null)
+                // Temp synchronization since we're accessing static variable
+                lock (Survey)
+                {
+
                     entry.Votes++;
+                }
             }
 
             Clients.updateSurvey(Survey);

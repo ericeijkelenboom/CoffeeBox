@@ -9,6 +9,10 @@
 </header>
 
 <p>
-   @Html.Partial("_Chat")
+   @Html.Partial("../Partial/_Chat")
 </p>
 </section>
+
+@section Scripts {
+    <script src="@Url.Content("~/Scripts/survey.js")" type="text/javascript"></script>
+}
