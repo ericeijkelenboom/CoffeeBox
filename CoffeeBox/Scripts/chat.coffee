@@ -9,7 +9,7 @@ class Main
 
         $.connection.hub.start()
 
-    bindChatEvents: (chat) -> 
+    bindChatEvents: (chat) => 
         $('#broadcast').bind 'click', () -> 
             chat.sendMessage { value: $('#msg').val() }
 
@@ -21,5 +21,5 @@ class Chat
         @chatConnection.addMessage = (message) -> 
             $('#messages').append '<li>' + message.Value + '</li>'
                 
-    sendMessage: (message) -> 
+    sendMessage: (message) => 
         @chatConnection.send message

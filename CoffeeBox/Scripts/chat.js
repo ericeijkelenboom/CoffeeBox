@@ -1,5 +1,6 @@
 (function() {
-  var Chat, Main;
+  var Chat, Main,
+    __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   $(document).ready(function() {
     return new Main().init();
@@ -7,7 +8,9 @@
 
   Main = (function() {
 
-    function Main() {}
+    function Main() {
+      this.bindChatEvents = __bind(this.bindChatEvents, this);
+    }
 
     Main.prototype.init = function() {
       var chat;
@@ -31,7 +34,7 @@
   Chat = (function() {
 
     function Chat() {
-      this.chatConnection = $.connection.chat;
+      this.sendMessage = __bind(this.sendMessage, this);      this.chatConnection = $.connection.chat;
       this.chatConnection.addMessage = function(message) {
         return $('#messages').append('<li>' + message.Value + '</li>');
       };

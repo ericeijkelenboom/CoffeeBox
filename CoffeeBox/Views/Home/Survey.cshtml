@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Interactive Poll";
+}
+<section class="content">
+<h2>Poll</h2>
+<p>
+     @Html.RenderPartial("_Survey")
+</p>
+</section>
+
+@section Scripts {
+    <script src="@Url.Content("~/Scripts/poll.js")" type="text/javascript"></script>
+}

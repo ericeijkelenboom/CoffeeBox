@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace CoffeeBox.Controllers
 {
@@ -10,12 +6,12 @@ namespace CoffeeBox.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
+            ViewBag.Message = "Welcome to the CoffeeBox!";
 
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Survey()
         {
             return View();
         }

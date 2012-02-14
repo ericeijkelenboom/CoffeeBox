@@ -2,11 +2,15 @@
     ViewBag.Title = "Home Page";
 }
 <section class="content">
-<header>
-<h2>CoffeeBox</h2>
-</header>
+    <header>
+        <h2>Chat</h2>
+    </header>
 
-<p>
-    @Html.Partial("_Chat")
-</p>
+    <p>
+        @Html.Partial("_Chat")
+    </p>
 </section>
+
+@section Scripts {
+    <script src="@Url.Content("~/Scripts/chat.js")" type="text/javascript"></script>
+}
